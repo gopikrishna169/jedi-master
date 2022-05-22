@@ -1,0 +1,17 @@
+GET /inforamtion
+------------------------------------------------------------------
+This API is used to fetch the details about the starship of Darth
+Vader, crew present in Death Star and presence of Leia in planet
+Alderaan.
+------------------------------------------------------------------
+Expected output:
+{
+    "starship": {
+        "name": "TIE Advanced x1",
+        "class": "Starfighter",
+        "model": "Twin Ion Engine Advanced x1"
+    },
+    "crew": "342,953",
+    "isLeiaOnPlanet": true
+}
+------------------------------------------------------------------

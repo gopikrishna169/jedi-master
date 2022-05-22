@@ -1,6 +1,7 @@
 const axios = require('axios');
 const constants = require('./const');
 
+// getSearchResults is used to get search results of a query e.g : https://swapi.py4e.com/api/people/?search=r2
 const getSearchResults = async (searhText, type) => {
     return await axios.get(constants.BASE_URL + type + constants.Search + searhText)
     .then(function (response) {
@@ -11,6 +12,7 @@ const getSearchResults = async (searhText, type) => {
     })
 } 
 
+// getStarshipDetails is used to get the details of the starship and curate a dedicated response
 const getStarshipDetails = async (starships) => {
     if (starships.length == 0) return {};
     let starShip = await axios.get(starships[0])
@@ -28,14 +30,15 @@ const getStarshipDetails = async (starships) => {
     }
 }
 
+// getCrewDetails is function used to get the count of crew in the given starship
 const getCrewDetails = async (shipName) => {
-  const ships= await getSearchResults("Death Star", constants.Starships);
-  console.log(ships)
+  const ships= await getSearchResults(shipName, constants.Starships);
   if (ships.length == 0) return 0;
   let ship = ships[0];
   return ship[constants.StarshipCrew];
 }
 
+// checkAvailability is a function used to check availabilty of a person in a particular planet
 const checkAvailability = async (personName, planetName) => {
     const persons = await getSearchResults(personName, constants.People);
     let personUrl = "";
@@ -53,4 +56,5 @@ const checkAvailability = async (personName, planetName) => {
     if (residents.indexOf(personUrl) !== -1) return true;
     return false; 
 }
+
 module.exports = { getSearchResults, getStarshipDetails, getCrewDetails, checkAvailability };

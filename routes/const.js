@@ -1,8 +1,8 @@
-const BASE_URL = "https://swapi.dev/api/";
-const People = "people";
-const Planets = "planets";
-const Starships = "starships";
-const Search = "?search=";
+const BASE_URL = "https://swapi.py4e.com/api/"; // API base URL
+const People = "people"; // API people route
+const Planets = "planets"; // API planets route
+const Starships = "starships"; // API starship route
+const Search = "?search="; // Search query const
 
 const StarshipName = "name";
 const StarshipClass = "starship_class";
